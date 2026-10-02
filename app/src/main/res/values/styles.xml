@@ -16,10 +16,10 @@
         <item name="android:popupBackground">@drawable/bg_spinner_popup</item>
         <item name="android:popupElevation">12dp</item>
         <item name="android:spinnerMode">dropdown</item>
-        <item name="android:dropDownVerticalOffset">8dp</item>
+        <item name="android:dropDownVerticalOffset">0dp</item>
         <item name="android:paddingStart">0dp</item>
         <item name="android:paddingEnd">0dp</item>
-        <item name="overlapAnchor">false</item>
+        <item name="overlapAnchor">true</item>
     </style>
 
     <style name="Widget.Avia.SpinnerItem" parent="Widget.AppCompat.TextView.SpinnerItem">
