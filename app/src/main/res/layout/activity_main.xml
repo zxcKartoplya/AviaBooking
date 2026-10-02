@@ -1,4 +1,429 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <FrameLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_header"
+                android:paddingBottom="56dp">
+
+                <ImageView
+                    android:id="@+id/cloud_large"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="-36dp"
+                    android:alpha="0.12"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_cloud" />
+
+                <ImageView
+                    android:id="@+id/cloud_small"
+                    android:layout_width="96dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="-24dp"
+                    android:layout_marginBottom="12dp"
+                    android:alpha="0.1"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_cloud" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="24dp"
+                    android:paddingTop="24dp"
+                    android:paddingEnd="24dp">
+
+                    <TextView
+                        android:id="@+id/header_subtitle"
+                        style="@style/Avia.HeaderSubtitle"
+                        android:text="@string/header_subtitle" />
+
+                    <TextView
+                        android:id="@+id/header_title"
+                        style="@style/Avia.HeaderTitle"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/header_title" />
+
+                    <com.example.aviabooking.FlightPathView
+                        android:id="@+id/flight_path"
+                        android:layout_width="match_parent"
+                        android:layout_height="112dp"
+                        android:layout_marginTop="8dp"
+                        android:importantForAccessibility="no" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_route"
+                style="@style/Widget.Avia.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-40dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        style="@style/Avia.SectionTitle"
+                        android:text="@string/section_route" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="24dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginTop="39dp"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_flight_takeoff"
+                                app:tint="@color/indigo" />
+
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_height="0dp"
+                                android:layout_marginVertical="8dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_route_line" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginBottom="16dp"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_flight_land"
+                                app:tint="@color/coral" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Avia.FieldLabel"
+                                android:labelFor="@id/spinner_from"
+                                android:text="@string/label_city_from" />
+
+                            <Spinner
+                                android:id="@+id/spinner_from"
+                                style="@style/Widget.Avia.Spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:entries="@array/cities" />
+
+                            <TextView
+                                style="@style/Avia.FieldLabel"
+                                android:layout_marginTop="16dp"
+                                android:labelFor="@id/spinner_to"
+                                android:text="@string/label_city_to" />
+
+                            <Spinner
+                                android:id="@+id/spinner_to"
+                                style="@style/Widget.Avia.Spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                android:entries="@array/cities" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_swap"
+                            style="@style/Widget.Avia.SwapButton"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="12dp"
+                            android:contentDescription="@string/action_swap_cities"
+                            app:icon="@drawable/ic_swap_vert" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_dates"
+                style="@style/Widget.Avia.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        style="@style/Avia.SectionTitle"
+                        android:text="@string/section_dates" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layout_departure"
+                        style="@style/Widget.Avia.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="@string/hint_departure_date"
+                        app:startIconContentDescription="@string/hint_departure_date"
+                        app:startIconDrawable="@drawable/ic_calendar">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_departure"
+                            style="@style/Widget.Avia.DateInput" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layout_return"
+                        style="@style/Widget.Avia.TextInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="@string/hint_return_date"
+                        app:startIconContentDescription="@string/hint_return_date"
+                        app:startIconDrawable="@drawable/ic_calendar">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_return"
+                            style="@style/Widget.Avia.DateInput" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_passengers"
+                style="@style/Widget.Avia.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        style="@style/Avia.SectionTitle"
+                        android:text="@string/section_passengers" />
+
+                    <LinearLayout
+                        style="@style/Avia.PassengerRow"
+                        android:layout_marginTop="12dp"
+                        android:baselineAligned="false">
+
+                        <FrameLayout
+                            style="@style/Avia.PassengerIcon"
+                            android:backgroundTint="@color/indigo_container">
+
+                            <ImageView
+                                android:id="@+id/icon_adults"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_person"
+                                app:tint="@color/indigo" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Avia.RowTitle"
+                                android:labelFor="@id/input_adults"
+                                android:text="@string/label_adults" />
+
+                            <TextView
+                                style="@style/Avia.RowCaption"
+                                android:text="@string/caption_adults" />
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Avia.TextInputLayout.Counter"
+                            android:layout_width="88dp"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/input_adults"
+                                style="@style/Widget.Avia.CounterInput"
+                                android:imeOptions="actionNext"
+                                android:nextFocusForward="@id/input_children"
+                                android:text="@string/default_adults" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="58dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/divider" />
+
+                    <LinearLayout
+                        style="@style/Avia.PassengerRow"
+                        android:layout_marginTop="12dp"
+                        android:baselineAligned="false">
+
+                        <FrameLayout
+                            style="@style/Avia.PassengerIcon"
+                            android:backgroundTint="@color/coral_container">
+
+                            <ImageView
+                                android:id="@+id/icon_children"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_child"
+                                app:tint="@color/coral" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Avia.RowTitle"
+                                android:labelFor="@id/input_children"
+                                android:text="@string/label_children" />
+
+                            <TextView
+                                style="@style/Avia.RowCaption"
+                                android:text="@string/caption_children" />
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Avia.TextInputLayout.Counter"
+                            android:layout_width="88dp"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/input_children"
+                                style="@style/Widget.Avia.CounterInput"
+                                android:imeOptions="actionNext"
+                                android:nextFocusForward="@id/input_infants" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="58dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/divider" />
+
+                    <LinearLayout
+                        style="@style/Avia.PassengerRow"
+                        android:layout_marginTop="12dp"
+                        android:baselineAligned="false">
+
+                        <FrameLayout
+                            style="@style/Avia.PassengerIcon"
+                            android:backgroundTint="@color/rose_container">
+
+                            <ImageView
+                                android:id="@+id/icon_infants"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_gravity="center"
+                                android:importantForAccessibility="no"
+                                android:src="@drawable/ic_stroller"
+                                app:tint="@color/rose" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Avia.RowTitle"
+                                android:labelFor="@id/input_infants"
+                                android:text="@string/label_infants" />
+
+                            <TextView
+                                style="@style/Avia.RowCaption"
+                                android:text="@string/caption_infants" />
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Avia.TextInputLayout.Counter"
+                            android:layout_width="88dp"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/input_infants"
+                                style="@style/Widget.Avia.CounterInput"
+                                android:imeOptions="actionDone" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_buy"
+                style="@style/Widget.Avia.BuyButton"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/action_buy"
+                app:icon="@drawable/ic_plane_right" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/status_bar_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:alpha="0"
+        android:background="@color/sky_top" />
+</FrameLayout>

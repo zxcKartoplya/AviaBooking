@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">AviaBooking</string>
+
+    <string name="header_subtitle">Бронирование авиабилетов</string>
+    <string name="header_title">Куда летим?</string>
+
+    <string name="section_route">Маршрут</string>
+    <string name="label_city_from">Город вылета</string>
+    <string name="label_city_to">Город прилёта</string>
+    <string name="action_swap_cities">Поменять города местами</string>
+
+    <string name="section_dates">Даты</string>
+    <string name="hint_departure_date">Дата вылета</string>
+    <string name="hint_return_date">Дата прилёта</string>
+
+    <string name="section_passengers">Пассажиры</string>
+    <string name="label_adults">Взрослые</string>
+    <string name="caption_adults">adult · от 12 лет</string>
+    <string name="label_children">Дети</string>
+    <string name="caption_children">child · от 2 до 11 лет</string>
+    <string name="label_infants">Младенцы</string>
+    <string name="caption_infants">infant · до 2 лет</string>
+    <string name="hint_passenger_count">0</string>
+    <string name="default_adults">1</string>
+
+    <string name="action_buy">Купить</string>
+
+    <string-array name="cities">
+        <item>Москва (SVO)</item>
+        <item>Санкт-Петербург (LED)</item>
+        <item>Сочи (AER)</item>
+        <item>Казань (KZN)</item>
+        <item>Екатеринбург (SVX)</item>
+        <item>Новосибирск (OVB)</item>
+        <item>Калининград (KGD)</item>
+        <item>Владивосток (VVO)</item>
+    </string-array>
 </resources>

@@ -12,7 +12,14 @@
         <item name="colorOnSurface">@color/text_primary</item>
         <item name="colorOnSurfaceVariant">@color/text_secondary</item>
         <item name="colorOutline">@color/outline</item>
+        <item name="colorSurfaceContainerHigh">@color/surface</item>
         <item name="android:colorBackground">@color/screen_background</item>
+        <item name="elevationOverlayEnabled">false</item>
+
+        <item name="android:spinnerItemStyle">@style/Widget.Avia.SpinnerItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/Widget.Avia.SpinnerDropDownItem</item>
+        <item name="spinnerDropDownItemStyle">@style/Widget.Avia.SpinnerDropDownItem</item>
+        <item name="dropdownListPreferredItemHeight">52dp</item>
     </style>
 
 </resources>

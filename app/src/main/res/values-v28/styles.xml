@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.Avia.Card" parent="Base.Widget.Avia.Card">
+        <item name="android:outlineAmbientShadowColor">@color/card_shadow</item>
+        <item name="android:outlineSpotShadowColor">@color/card_shadow</item>
+    </style>
+
+</resources>
