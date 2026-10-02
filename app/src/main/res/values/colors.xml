@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="indigo">#4F46E5</color>
+    <color name="indigo_container">#E8E7FF</color>
+    <color name="indigo_dark">#1E1A6E</color>
+    <color name="sunset_orange">#FF7A59</color>
+    <color name="sunset_pink">#FF4E8A</color>
+    <color name="coral">#F06A3C</color>
+    <color name="coral_container">#FFEFE7</color>
+    <color name="rose">#D9468F</color>
+    <color name="rose_container">#FDEAF3</color>
+
+    <color name="sky_top">#161A4F</color>
+    <color name="sky_middle">#4A3A9A</color>
+    <color name="sky_bottom">#B65E9E</color>
+
+    <color name="screen_background">#F2F3F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="field_fill">#F6F7FB</color>
+    <color name="outline">#DADDEA</color>
+    <color name="divider">#EEF0F6</color>
+    <color name="text_primary">#1B1D2E</color>
+    <color name="text_secondary">#6B7088</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="ripple_light">#40FFFFFF</color>
+    <color name="card_shadow">#594F46E5</color>
+</resources>
